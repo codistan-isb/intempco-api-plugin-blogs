@@ -1,0 +1,107 @@
+type BlogPost {
+  _id: ID!
+  title: String
+  content: String
+  author: String
+  authorId: ID
+  optionTitle: String
+  slug: String
+  description: String
+  datePublished: DateTime
+  dateUpdated: DateTime
+  metadata: [String]
+  status: String
+  featuredImage: String
+  isVisible: Boolean
+  isDeleted: Boolean
+  metafields: [Metafield]
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+type Metafield {
+  "Field description"
+  description: String
+
+  "Field key"
+  key: String!
+
+  "Field namespace"
+  namespace: String
+
+  "Field scope"
+  scope: String
+
+  "Field value"
+  value: String
+
+  "Field value type"
+  valueType: String
+
+  thumbnail: String
+}
+
+input BlogPostInput {
+  title: String
+  content: String
+  author: String
+  authorId: ID
+  optionTitle: String
+  slug: String
+  description: String
+  datePublished: DateTime
+  dateUpdated: DateTime
+  metadata: [String]
+  status: String
+  featuredImage: String
+  isVisible: Boolean
+  isDeleted: Boolean
+  metafields: [MetafieldInput]
+}
+input MetafieldInput {
+  "Field description"
+  description: String
+
+  "Field key"
+  key: String
+
+  "Field namespace"
+  namespace: String
+
+  "Field scope"
+  scope: String
+
+  "Field value"
+  value: String
+
+  "Field value type"
+  valueType: String
+
+  thumbnail: String
+}
+type BlogPostPayload {
+  totalCount: Int
+  data: [BlogPost]
+}
+type updateBlogPayload {
+  message: String
+  status: Boolean
+  data: BlogPost
+}
+type deleteBlogPayload {
+  message: String
+  status: Boolean
+}
+type Mutation {
+  createBlogPost(input: BlogPostInput): BlogPost
+  updateBlogPost(_id: ID!, input: BlogPostInput): updateBlogPayload
+  deleteBlogPost(_id: ID!): deleteBlogPayload
+}
+type Query {
+  getBlogPost(_id: ID!): BlogPost
+  listBlogPosts(
+    itemPerPage: Int
+    PageNumber: Int
+    status: String
+    searchQuery: String
+  ): BlogPostPayload
+}

@@ -2,7 +2,7 @@
   "name": "@codistan-isb/intempco-api-plugin-blogs",
   "description": "Blogs plugin for the Reaction API",
   "label": "Blogs Plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "type": "module",
   "engines": {
