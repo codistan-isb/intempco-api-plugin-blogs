@@ -42,9 +42,9 @@ export default async function createBlogPost(context, args) {
     updatedAt: new Date(),
     createdAt: new Date()
   };
-  console.log("newBlog",newBlog);
+  // console.log("newBlog",newBlog);
   let newBlogResponse = await Blogs.insertOne(newBlog);
-  console.log("newBlogResponse",newBlogResponse);
+  // console.log("newBlogResponse",newBlogResponse);
   if (newBlogResponse?.ops.length > 0) {
     return newBlogResponse?.ops[0];
   }
