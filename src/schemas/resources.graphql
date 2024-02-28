@@ -49,19 +49,23 @@ type ImageSizes {
   "Use this URL to get a thumbnail resolution file for this image"
   thumbnail: String
 }
+type updateResourcesPayload {
+  message: String
+  status: Boolean
+  data: Resources
+}
 type ResourcesPayload {
   totalCount: Int
   data: [Resources]
 }
+type deleteBlogPayload {
+  message: String
+  status: Boolean
+}
 type Mutation {
   createResource(input: resourcesInput): Resources
-  #   updateService(
-  #     id: ID!
-  #     title: String!
-  #     description: String!
-  #     image: String!
-  #   ): Service!
-  #   deleteService(id: ID!): ID!
+  updateResource(input: resourcesInput, _id: ID!): updateResourcesPayload
+  deleteResource(_id: ID!): deleteBlogPayload
 }
 type Query {
   # getServiceById(id: ID!): Service
