@@ -68,7 +68,7 @@ type Mutation {
   deleteResource(_id: ID!): deleteBlogPayload
 }
 type Query {
-  # getServiceById(id: ID!): Service
+  getResourceById(_id: ID!): Resources
   getAllResources(
     itemPerPage: Int
     PageNumber: Int

@@ -24,7 +24,7 @@ export default async function deleteResource(context, args) {
       returnOriginal: false,
     }
   );
-  console.log("updatedResource", updatedResource);
+  // console.log("updatedResource", updatedResource);
   if (updatedResource) {
     return{
         status:true,

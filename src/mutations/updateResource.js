@@ -6,11 +6,11 @@ export default async function updateResource(context, args) {
   const { collections } = context;
   const { Services } = collections;
   let decodedId = decodeProductOpaqueId(_id);
-  console.log("decodedId", decodedId);
+  // console.log("decodedId", decodedId);
   const currentServie = await Services.findOne({ _id: decodedId });
   if (!currentServie)
     throw new ReactionError("not-found", "Resource not found");
-  console.log("currentServie", currentServie);
+  // console.log("currentServie", currentServie);
   input.updatedAt = new Date();
   let modifier = { $set: input };
   const  { value: updatedResource } = await Services.findOneAndUpdate(
